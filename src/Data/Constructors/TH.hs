@@ -5,6 +5,13 @@ import Data.Constructors.EqC
 import Language.Haskell.TH as TH 
 import Language.Haskell.TH.Syntax as TH
 
+-- | Derive an instance of @EqC@ for any simple type
+-- For example, @deriveEqC ''Either@ will generate:
+--
+-- > instance EqC (Either a b) where
+-- >   eqConstr Left{}  Left{}  = True
+-- >   eqConstr Right{} Right{} = True
+-- >   eqConstr _       _       = False
 deriveEqC :: Name -> DecsQ
 deriveEqC n = do
   (saturatedType,constructors) <- extractTypeCons n
