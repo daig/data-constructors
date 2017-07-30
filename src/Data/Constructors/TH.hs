@@ -1,5 +1,5 @@
 {-# LANGUAGE TemplateHaskell #-}
-module Data.Constructors.TH (deriveEqC) where
+module Data.Constructors.TH (EqC(..),deriveEqC) where
 import Data.Constructors.EqC
 
 import Language.Haskell.TH as TH 
