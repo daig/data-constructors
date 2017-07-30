@@ -14,7 +14,7 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Data.Constructors.EqC, Data.Constructors.TH, Data.Constructors.Test
+  exposed-modules:     Data.Constructors.EqC, Data.Constructors.TH
   build-depends:       base >= 4.7 && < 5
                       ,template-haskell
   default-language:    Haskell2010
@@ -26,6 +26,11 @@ test-suite data-constructors-test
   main-is:             Spec.hs
   build-depends:       base , data-constructors, QuickCheck
   default-language:    Haskell2010
+benchmark bench-EqC
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      bench
+  main-is:             Bench.hs
+  build-depends:       base,data-constructors,QuickCheck,criterion,deepseq
 
 source-repository head
   type:     git
