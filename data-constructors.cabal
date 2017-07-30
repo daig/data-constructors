@@ -1,0 +1,25 @@
+name:                data-constructors
+version:             0.1.0.0
+synopsis:            Generically compare data by their constructors
+homepage:            https://github.com/daig/data-constructors#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Dai
+maintainer:          daig@sodality.cc
+copyright:           2017 Dai
+category:            Data
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Data.Constructors.EqC, Data.Constructors.TH
+  build-depends:       base >= 4.7 && < 5
+                      ,template-haskell
+  default-language:    Haskell2010
+  default-extensions: LambdaCase
+
+source-repository head
+  type:     git
+  location: https://github.com/daig/data-constructors
