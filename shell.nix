@@ -12,7 +12,7 @@ let
         version = "0.1.0.0";
         src = ./.;
         libraryHaskellDepends = [ base template-haskell ];
-        testHaskellDepends = [ base QuickCheck ];
+        testHaskellDepends = [ base QuickCheck criterion ];
         benchmarkHaskellDepends = [ base criterion deepseq QuickCheck ];
         homepage = "https://github.com/daig/data-constructors#readme";
         description = "Generically compare data by their constructors";
