@@ -1,4 +1,4 @@
-{ nixpkgs ? import <nixpkgs> {}, compiler ? "default" }:
+{ nixpkgs ? import <nixpkgs> {}, compiler ? "default", withBenchmarkDepends ? true}:
 
 let
 
@@ -12,8 +12,9 @@ let
         version = "0.1.0.0";
         src = ./.;
         libraryHaskellDepends = [ base template-haskell ];
-        testHaskellDepends = [ base QuickCheck criterion ];
+        testHaskellDepends = [ base QuickCheck ];
         benchmarkHaskellDepends = [ base criterion deepseq QuickCheck ];
+        inherit withBenchmarkDepends;
         homepage = "https://github.com/daig/data-constructors#readme";
         description = "Generically compare data by their constructors";
         license = stdenv.lib.licenses.bsd3;
