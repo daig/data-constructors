@@ -31,7 +31,7 @@ extractTypeCons n = do
         (foldl (\c -> AppT c . extractTV) (ConT n) tyVars
         ,foldr (\c acc -> Clause [RecP c [], RecP c []] (NormalB true) [] : acc)
                [Clause [WildP,WildP] (NormalB false) []]
-               (map (\(NormalC n _) -> n) cons))
+               (map (\(NormalC n' _) -> n') cons))
     _ -> error "invalid name"
 
 extractTV :: TyVarBndr -> TH.Type
